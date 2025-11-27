@@ -19,7 +19,7 @@ st.set_page_config(
 
 # Constants
 HF_MODEL_ID = "OmarHassan44/plagiarism-detector"
-
+MAX_LENGTH = 255
 
 @st.cache_resource
 def load_model_and_tokenizer():
