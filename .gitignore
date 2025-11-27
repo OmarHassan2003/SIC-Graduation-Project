@@ -1,0 +1,19 @@
+models/
+!models/plagiarism_detector/      # keep folder structure
+models/plagiarism_detector/checkpoint-*/
+models/plagiarism_detector/final_model/
+*.pt
+*.bin
+*.safetensors
+**/*.cache/
+cache/
+data/combined_dataset.csv
+data/test_dataset.csv
+data/semantic_benchmark_dataset.csv
+data/gptclonebench_dataset.csv
+__pycache__/
+*.pyc
+*.pyo
+results/
+logs/
+*.log
