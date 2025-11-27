@@ -18,22 +18,15 @@ st.set_page_config(
 )
 
 # Constants
-MODEL_NAME = "microsoft/codebert-base"
-MAX_LENGTH = 255
-MODEL_PATH = "models/plagiarism_detector/checkpoint-1221"
+HF_MODEL_ID = "OmarHassan44/plagiarism-detector"
 
 
 @st.cache_resource
 def load_model_and_tokenizer():
     """Load model and tokenizer (cached)"""
-    model_path = Path(MODEL_PATH)
     
-    if not model_path.exists():
-        st.error(f"Model not found at {model_path}. Please train the model first.")
-        st.stop()
-    
-    tokenizer = RobertaTokenizerFast.from_pretrained(MODEL_NAME)
-    model = RobertaForSequenceClassification.from_pretrained(str(model_path))
+    model = RobertaForSequenceClassification.from_pretrained(HF_MODEL_ID)
+    tokenizer = RobertaTokenizerFast.from_pretrained(HF_MODEL_ID)
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
